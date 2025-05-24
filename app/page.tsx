@@ -9,9 +9,9 @@ export default function Home() {
       className="hero"
     >
       <div className="container">
-        <h1>Hey, I'm Rugved 👋</h1>
+        <h1>Hey, I&apos;m Rugved 👋</h1>
         <p>
-          I'm a developer passionate about building tools, websites, and creative tech. This is my digital home.
+          I&apos;m a developer passionate about building tools, websites, and creative tech. This is my digital home.
         </p>
       </div>
     </motion.section>

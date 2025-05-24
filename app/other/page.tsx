@@ -19,7 +19,7 @@ export default function Other() {
           <Youtube size={20} /> YouTube Channel
         </h3>
         <p>
-          I'm also a <strong>YouTuber</strong> where I share content related to tech, music, and creativity.
+          I&apos;m also a <strong>YouTuber</strong> where I share content related to tech, music, and creativity.
         </p>
         <a
           href="https://www.youtube.com/@yourchannel"
