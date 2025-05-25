@@ -15,6 +15,7 @@ export default function Navbar() {
     <nav>
       <div className="nav-title">Rugved Joshi</div>
       <div className="nav-links">
+        <Link href="/">Home</Link>
         <Link href="/about">About</Link>
         <Link href="/projects">Projects</Link>
         <Link href="/resume">Resume</Link>
