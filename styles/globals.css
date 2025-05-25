@@ -93,7 +93,6 @@ nav a:hover {
 
 /* Hero Section */
 .hero {
-  background: var(--color-surface);
   padding: 4rem 2rem;
   text-align: center;
   border-radius: 1rem;
