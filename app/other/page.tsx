@@ -16,13 +16,13 @@ export default function Other() {
 
       <div className="section-block">
         <h3 className="section-subtitle">
-          <Youtube size={20} /> YouTube Channel
+          <Youtube size={20} /> Rugved Joshi on YouTube
         </h3>
         <p>
-          I&apos;m also a <strong>YouTuber</strong> where I share content related to tech, music, and creativity.
+          I&apos;m also a <strong>YouTuber</strong> and this is my first channel realted to music and vlogging.
         </p>
         <a
-          href="https://www.youtube.com/@yourchannel"
+          href="https://youtube.com/@rugvedsjoshi?si=236IR2dD4Yy9Om-B"
           target="_blank"
           rel="noopener noreferrer"
           className="link"
