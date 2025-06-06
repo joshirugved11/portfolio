@@ -1,3 +1,4 @@
+// components/ProjectCard.tsx
 type Props = {
   title: string;
   description: string;
@@ -6,7 +7,7 @@ type Props = {
 
 export default function ProjectCard({ title, description, github }: Props) {
   return (
-    <div className="card">
+    <div className="card p-3 shadow-sm">
       <h3>{title}</h3>
       <p>{description}</p>
       {github && (
@@ -14,7 +15,7 @@ export default function ProjectCard({ title, description, github }: Props) {
           href={github}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-blue-600 text-sm mt-2 inline-block hover:underline"
+          className="btn btn-outline-primary mt-2"
         >
           View on GitHub
         </a>

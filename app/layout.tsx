@@ -1,5 +1,5 @@
-// app/layout.tsx
-import '../styles/globals.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../styles/globals.css'; // ✅ Import your custom CSS
 import { ReactNode } from 'react';
 import { Inter } from 'next/font/google';
 import Navbar from '@/components/Navbar';
@@ -15,11 +15,9 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-white dark:bg-background`}>
+      <body className={`${inter.className} bg-white text-dark d-flex flex-column min-vh-100`}>
         <Navbar />
-        <main>
-          {children}
-        </main>
+        <main className="flex-grow-1">{children}</main>
         <Footer />
       </body>
     </html>
