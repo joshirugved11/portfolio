@@ -13,10 +13,11 @@ export default function About() {
         <li>JavaScript</li>
         <li>TypeScript</li>
         <li>React</li>
-        <li>Node.js</li>
-        <li>Next.js</li>
+        <li>Nodejs</li>
+        <li>Nextjs</li>
         <li>Flask</li>
         <li>FastAPI</li>
+        <li>Rust</li>
       </ul>
 
       <h2>AI/ML</h2>
@@ -29,14 +30,6 @@ export default function About() {
         <li>Reinforcement Learning</li>
         <li>Generative AI</li>
         <li>AI Agents</li>
-      </ul>
-
-      <h2>Interests</h2>
-      <ul>
-        <li>Music Production</li>
-        <li>Sound Engineering</li>
-        <li>Flute and Mouth Organ</li>
-        <li>Content Creation</li>
       </ul>
     </section>
   );
