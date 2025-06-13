@@ -28,7 +28,6 @@ export default function Navbar() {
           <Link className="nav-link" href="/">Home</Link>
           <Link className="nav-link" href="/about">About</Link>
           <Link className="nav-link" href="/projects">Projects</Link>
-          <Link className="nav-link" href="/resume">Resume</Link>
           <Link className="nav-link" href="/other">Other</Link>
           <button onClick={toggleDarkMode} className="btn btn-outline-secondary">
             {dark ? <Sun size={20} /> : <Moon size={20} />}
