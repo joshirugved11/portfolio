@@ -1,42 +1,227 @@
+/* =========================================
+   GLOBAL VARIABLES
+========================================= */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-main: #050814;
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.18);
+  --accent-aqua: #7df9ff;
+  --accent-purple: #c77dff;
+  --text-main: #ffffff;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
+/* =========================================
+   BASIC RESET
+========================================= */
 * {
   box-sizing: border-box;
+}
+
+html, body {
   padding: 0;
   margin: 0;
+  color: var(--text-main);
+  background: var(--bg-main);
+  min-height: 100vh;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+/* FIX FOOTER NOT AT BOTTOM */
+body {
+  display: flex;
+  flex-direction: column;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+.app-main {
+  flex: 1; /* pushes footer down */
+  margin-top: 110px !important; /* FIX overlap with navbar */
+  padding-bottom: 4rem;
+}
+
+/* =========================================
+   NAVBAR FIXES
+========================================= */
+.glass-nav {
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  z-index: 1000;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.35);
+}
+
+/* Make navbar text always white — no hover color change */
+.nav-link {
+  color: #ffffff !important;      /* normal state */
+}
+
+/* FORCE NAVBAR TEXT ALWAYS WHITE */
+.navbar .nav-link,
+.navbar .nav-link:hover,
+.navbar .nav-link.active,
+.navbar-brand {
+  color: #ffffff !important;
+}
+
+/* =========================================
+   GLASS CARD FIX + TEXT VISIBILITY
+========================================= */
+.glass-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 22px;
+  padding: 2rem;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  color: #fff !important;
+}
+
+/* ENSURE TEXT IS ALWAYS VISIBLE INSIDE CARDS */
+.glass-card p,
+.glass-card span,
+.glass-card small,
+.glass-card label,
+.glass-card input,
+.glass-card textarea,
+.glass-card .text-muted {
+  color: rgba(255,255,255,0.92) !important;
+  opacity: 1 !important;
+}
+
+/* =========================================
+   FORMS FIX (Inputs invisible before)
+========================================= */
+.form-control {
+  background: rgba(255,255,255,0.06) !important;
+  border: 1px solid rgba(255,255,255,0.25) !important;
+  color: #fff !important;
+}
+
+.form-control:focus {
+  border-color: var(--accent-aqua) !important;
+  box-shadow: 0 0 8px var(--accent-aqua) !important;
+  background: rgba(255,255,255,0.12) !important;
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+.btn-glass {
+  border-radius: 999px;
+  background: rgba(125,249,255,0.15);
+  border: 1px solid rgba(255,255,255,0.4);
+  color: #fff !important;
+  transition: 0.25s;
+}
+
+.btn-glass:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-aqua);
+  box-shadow: 0 0 12px var(--accent-aqua);
+}
+
+/* =========================================
+   SECTION TITLES
+========================================= */
+.section-title {
+  margin-top: 20px;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 2.4rem;
+  background: linear-gradient(90deg, var(--accent-aqua), var(--accent-purple));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* =========================================
+   GRID SPACING FIX
+========================================= */
+.glass-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+/* =========================================
+   FOOTER FIX
+========================================= */
+.site-footer {
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+  background: rgba(0,0,0,0.4);
+  border-top: 1px solid rgba(255,255,255,0.2);
+  backdrop-filter: blur(15px);
+  margin-top: 2rem;
+  color: rgba(255,255,255,0.8) !important;
+}
+
+/* FORCE FOOTER TEXT ALWAYS WHITE */
+.site-footer small,
+.site-footer,
+.site-footer .text-muted {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+/* =========================================
+   LIQUID BACKGROUND BLOBS (UNCHANGED)
+========================================= */
+.liquid-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.liquid-blob {
+  position: absolute;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.6;
+  animation: floatBlob 15s ease-in-out infinite alternate;
+}
+
+.liquid-blob.blob-1 {
+  background: var(--accent-aqua);
+  top: -80px;
+  left: -60px;
+}
+
+.liquid-blob.blob-2 {
+  background: var(--accent-purple);
+  bottom: -120px;
+  right: -40px;
+}
+
+.liquid-blob.blob-3 {
+  background: #4adeff;
+  top: 50%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes floatBlob {
+  0% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(40px) scale(1.1); }
+}
+
+/* =========================================
+   MOBILE RESPONSIVE FIXES
+========================================= */
+@media (max-width: 768px) {
+  .app-main {
+    margin-top: 130px !important;
+  }
+
+  .section-title {
+    font-size: 1.9rem;
+  }
+
+  .glass-card {
+    padding: 1.4rem;
   }
 }
