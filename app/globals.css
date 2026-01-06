@@ -225,3 +225,16 @@ body {
     padding: 1.4rem;
   }
 }
+
+/* SOCIAL ICONS — Glass Glow Hover */
+.social-icon {
+  color: #ffffff !important;
+  opacity: 0.8;
+  transition: 0.25s ease;
+}
+
+.social-icon:hover {
+  opacity: 1;
+  transform: translateY(-3px);
+  text-shadow: 0 0 10px var(--accent-aqua);
+}
