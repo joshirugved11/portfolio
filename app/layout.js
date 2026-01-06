@@ -1,4 +1,5 @@
 // app/layout.js
+import Script from "next/script";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './globals.css';
 

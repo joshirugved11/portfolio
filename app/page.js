@@ -25,12 +25,6 @@ export default function HomePage() {
                 <Link href="/projects" className="btn btn-glass">
                   Explore Projects
                 </Link>
-                <Link href="/connect" className="btn btn-outline-glass">
-                  Connect With Me
-                </Link>
-                <Link href="/support" className="btn btn-outline-glass">
-                  Support Me
-                </Link>
               </div>
             </GlassCard>
           </div>
@@ -70,9 +64,6 @@ export default function HomePage() {
               AI, deepfake detection, GenAI agents, web apps and more. This section will showcase
               the work I&apos;ve actually built.
             </p>
-            <Link href="/projects" className="btn btn-outline-glass btn-sm">
-              View Projects
-            </Link>
           </GlassCard>
 
           <GlassCard>
@@ -81,9 +72,6 @@ export default function HomePage() {
               Music, experiments, mini tools, and playful ideas that don&apos;t have to be
               serious to be worth building.
             </p>
-            <Link href="/fun" className="btn btn-outline-glass btn-sm">
-              Go to Fun
-            </Link>
           </GlassCard>
 
           <GlassCard>
@@ -93,12 +81,6 @@ export default function HomePage() {
               updates on what I&apos;m building.
             </p>
             <div className="d-flex flex-wrap gap-2">
-              <Link href="/connect" className="btn btn-outline-glass btn-sm">
-                Connect
-              </Link>
-              <Link href="/newsletter" className="btn btn-outline-glass btn-sm">
-                Newsletter
-              </Link>
             </div>
           </GlassCard>
         </div>
