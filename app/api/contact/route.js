@@ -1,9 +1,13 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
+/* ✅ FORCE NODE RUNTIME (CRITICAL FOR NODEMAILER) */
+export const runtime = "nodejs";
+
 /* ===========================
    SIMPLE IN-MEMORY RATE LIMIT
    3 requests / minute / IP
+   (Resets on cold starts – acceptable)
 =========================== */
 const rateLimitMap = new Map();
 
@@ -27,7 +31,12 @@ function isRateLimited(ip) {
 
 export async function POST(req) {
   try {
-    const ip = req.headers.get("x-forwarded-for") || "unknown";
+    /* ✅ Correct IP extraction for Vercel */
+    const forwardedFor = req.headers.get("x-forwarded-for");
+    const ip = forwardedFor
+      ? forwardedFor.split(",")[0].trim()
+      : "unknown";
+
     const { name, email, message } = await req.json();
 
     /* ---------- BASIC VALIDATION ---------- */
@@ -49,7 +58,7 @@ export async function POST(req) {
     /* ---------- EMAIL TRANSPORT ---------- */
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
-      port: process.env.SMTP_PORT,
+      port: Number(process.env.SMTP_PORT),
       secure: true,
       auth: {
         user: process.env.SMTP_USER,
