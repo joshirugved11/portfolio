@@ -1,6 +1,7 @@
 // app/page.js
 import GlassCard from '../components/GlassCard';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function HomePage() {
   return (
@@ -10,15 +11,20 @@ export default function HomePage() {
         <div className="row align-items-center g-4">
           <div className="col-lg-7 fade-up">
             <GlassCard>
-              <p className="text-uppercase mb-2" style={{ letterSpacing: '0.2em', fontSize: '0.75rem' }}>
+              <p
+                className="text-uppercase mb-2"
+                style={{ letterSpacing: '0.2em', fontSize: '0.75rem' }}
+              >
                 Welcome
               </p>
+
               <h1 className="hero-title mb-3">
                 Hi, I&apos;m <span className="hero-highlight">Rugved</span>.
               </h1>
+
               <p className="hero-tagline mb-4">
-                I build AI & GenAI systems, experiment with deepfake detection, explore ethical
-                hacking, and create things just for fun.
+                I build AI & GenAI systems, experiment with deepfake detection,
+                explore ethical hacking, and create things just for fun.
               </p>
 
               <div className="d-flex flex-wrap gap-3">
@@ -29,27 +35,33 @@ export default function HomePage() {
             </GlassCard>
           </div>
 
+          {/* RIGHT SIDE CARD WITH YOUR PHOTO */}
           <div className="col-lg-5 fade-up delay-1">
             <GlassCard className="text-center">
-              <div
-                style={{
-                  width: 140,
-                  height: 140,
-                  borderRadius: '999px',
-                  margin: '0 auto 1.5rem',
-                  border: '2px solid rgba(255,255,255,0.4)',
-                  background:
-                    'radial-gradient(circle at 30% 20%, rgba(255,255,255,0.35), transparent 60%), radial-gradient(circle at 80% 80%, rgba(125,249,255,0.35), transparent 55%)',
-                }}
-              />
-              <h2 className="h5 mb-1">Liquid Glass Portfolio</h2>
-              <p className="text-muted mb-3" style={{ fontSize: '0.9rem' }}>
-                A futuristic glass UI with subtle liquid motion across the entire site.
+
+              {/* Your Photo */}
+              <div style={{ marginBottom: '1.5rem' }}>
+                <Image
+                  src="/profile.jpg"   // 👈 Put your photo in public folder with this name
+                  alt="Rugved Joshi"
+                  width={220}
+                  height={220}
+                  style={{
+                    borderRadius: '20px',
+                    objectFit: 'cover',
+                    border: '2px solid rgba(255,255,255,0.3)'
+                  }}
+                />
+              </div>
+
+              <p
+                className="mb-0"
+                style={{ fontSize: '0.95rem', opacity: 0.9 }}
+              >
+                Scroll down or use the navigation above to explore my projects,
+                fun experiments, newsletter, and ways to support my work.
               </p>
-              <p className="mb-0" style={{ fontSize: '0.85rem', opacity: 0.9 }}>
-                Scroll down or use the navigation above to explore my projects, fun experiments,
-                newsletter, and ways to support my work.
-              </p>
+
             </GlassCard>
           </div>
         </div>
@@ -61,27 +73,25 @@ export default function HomePage() {
           <GlassCard>
             <h3 className="h5 mb-2">Projects</h3>
             <p className="mb-3 text-muted" style={{ fontSize: '0.9rem' }}>
-              AI, deepfake detection, GenAI agents, web apps and more. This section will showcase
-              the work I&apos;ve actually built.
+              AI, deepfake detection, GenAI agents, web apps and more.
+              This section will showcase the work I&apos;ve actually built.
             </p>
           </GlassCard>
 
           <GlassCard>
             <h3 className="h5 mb-2">Fun</h3>
             <p className="mb-3 text-muted" style={{ fontSize: '0.9rem' }}>
-              Music, experiments, mini tools, and playful ideas that don&apos;t have to be
-              serious to be worth building.
+              Music, experiments, mini tools, and playful ideas that don&apos;t
+              have to be serious to be worth building.
             </p>
           </GlassCard>
 
           <GlassCard>
             <h3 className="h5 mb-2">Connect & Newsletter</h3>
             <p className="mb-3 text-muted" style={{ fontSize: '0.9rem' }}>
-              Reach out for collaboration, feedback, or just to say hi. Join the newsletter to get
-              updates on what I&apos;m building.
+              Reach out for collaboration, feedback, or just to say hi.
+              Join the newsletter to get updates on what I&apos;m building.
             </p>
-            <div className="d-flex flex-wrap gap-2">
-            </div>
           </GlassCard>
         </div>
       </section>
