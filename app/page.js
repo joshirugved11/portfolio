@@ -2,6 +2,8 @@
 import GlassCard from '../components/GlassCard';
 import Link from 'next/link';
 import Image from 'next/image';
+import { FaLinkedin, FaGithub, FaInstagram, FaYoutube } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 
 export default function HomePage() {
   return (
@@ -94,6 +96,68 @@ export default function HomePage() {
             </p>
           </GlassCard>
         </div>
+      </section>
+
+      {/* Social Media Section */}
+      <section className="fade-up delay-3 mt-5">
+        <GlassCard className="text-center">
+          <h3 className="h5 mb-3">Connect With Me</h3>
+          <p className="text-muted mb-4" style={{ fontSize: '0.95rem' }}>
+            Follow my journey, check out my code, or just say hi on social media!
+          </p>
+          
+          <div className="d-flex justify-content-center gap-4 flex-wrap">
+            <a 
+              href="https://www.linkedin.com/in/rugved-joshi-954a9b22a" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="social-icon"
+              aria-label="LinkedIn"
+            >
+              <FaLinkedin size={32} />
+            </a>
+            
+            <a 
+              href="https://github.com/joshirugved11" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="social-icon"
+              aria-label="GitHub"
+            >
+              <FaGithub size={32} />
+            </a>
+            
+            <a 
+              href="https://www.instagram.com/r_u.g_v.e_d" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="social-icon"
+              aria-label="Instagram"
+            >
+              <FaInstagram size={32} />
+            </a>
+            
+            <a 
+              href="https://x.com/joshi_rugv4084" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="social-icon"
+              aria-label="X (Twitter)"
+            >
+              <FaXTwitter size={32} />
+            </a>
+            
+            <a 
+              href="https://youtube.com/@rugvedsjoshi" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="social-icon"
+              aria-label="YouTube"
+            >
+              <FaYoutube size={32} />
+            </a>
+          </div>
+        </GlassCard>
       </section>
     </div>
   );

@@ -14,7 +14,7 @@ export default function Navbar() {
     { href: '/projects', label: 'Projects' },
     { href: '/fun', label: 'Fun' },
     { href: '/connect', label: 'Connect' },
-    { href: '/newsletter', label: 'Newsletter' },
+    { href: '/experience', label: 'Experience' },
     { href: '/support', label: 'Support Me' },
   ];
 
