@@ -238,3 +238,14 @@ body {
   transform: translateY(-3px);
   text-shadow: 0 0 10px var(--accent-aqua);
 }
+
+.youtube-link:hover {
+  text-shadow: 0 0 10px var(--accent-aqua);
+}
+
+.tech-badge:hover {
+  background: rgba(125, 249, 255, 0.2) !important;
+  border-color: var(--accent-aqua) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 0 8px rgba(125, 249, 255, 0.4);
+}
