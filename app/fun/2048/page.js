@@ -1,55 +1,65 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 import GlassCard from "../../../components/GlassCard";
 
-export default function Game2048() {
-  const empty = () => Array(4).fill().map(() => Array(4).fill(0));
+const emptyGrid = () => Array.from({ length: 4 }, () => Array(4).fill(0));
 
-  const [grid, setGrid] = useState(empty());
+const cloneGrid = (grid) => grid.map((row) => [...row]);
 
-  const addTile = (g) => {
-    const spots = [];
-    g.forEach((row, rIdx) =>
-      row.forEach((val, cIdx) => {
-        if (val === 0) spots.push([rIdx, cIdx]);
-      })
-    );
-    if (spots.length === 0) return g;
-    const [r, c] = spots[Math.floor(Math.random() * spots.length)];
-    g[r][c] = 2;
-    return g;
-  };
+const addTile = (grid) => {
+  const nextGrid = cloneGrid(grid);
+  const spots = [];
 
-  useEffect(() => {
-    let g = addTile(empty());
-    g = addTile(g);
-    setGrid([...g]);
-  }, []);
+  nextGrid.forEach((row, rIdx) =>
+    row.forEach((val, cIdx) => {
+      if (val === 0) spots.push([rIdx, cIdx]);
+    })
+  );
 
-  const slide = (row) => row.filter(v => v).concat(Array(4).fill(0)).slice(0,4);
-  const combine = (row) => {
-    for (let i=0;i<3;i++){
-      if (row[i] && row[i] === row[i+1]) {
-        row[i] *= 2;
-        row[i+1] = 0;
-      }
+  if (spots.length === 0) return nextGrid;
+
+  const [r, c] = spots[Math.floor(Math.random() * spots.length)];
+  nextGrid[r][c] = 2;
+  return nextGrid;
+};
+
+const createInitialGrid = () => addTile(addTile(emptyGrid()));
+
+const slide = (row) => row.filter(Boolean).concat(Array(4).fill(0)).slice(0, 4);
+
+const combine = (row) => {
+  const nextRow = [...row];
+  for (let i = 0; i < 3; i += 1) {
+    if (nextRow[i] && nextRow[i] === nextRow[i + 1]) {
+      nextRow[i] *= 2;
+      nextRow[i + 1] = 0;
     }
-    return row;
-  };
+  }
+  return nextRow;
+};
 
-  const move = (dir) => {
-    let g = JSON.parse(JSON.stringify(grid));
+const rotate = (matrix) => matrix[0].map((_, i) => matrix.map((row) => row[i]));
 
-    const rotate = (m) => m[0].map((_, i) => m.map(row => row[i]));
+export default function Game2048() {
+  const [grid, setGrid] = useState(createInitialGrid);
 
-    for (let i=0;i<dir;i++) g = rotate(g);
+  const move = useCallback((dir) => {
+    setGrid((currentGrid) => {
+      let nextGrid = cloneGrid(currentGrid);
 
-    g = g.map(r => combine(slide(r)));
-    for (let i=0;i<3;i++) g = rotate(g);
+      for (let i = 0; i < dir; i += 1) nextGrid = rotate(nextGrid);
 
-    setGrid(addTile(g));
-  };
+      nextGrid = nextGrid.map((row) => slide(combine(slide(row))));
+      for (let i = 0; i < 3; i += 1) nextGrid = rotate(nextGrid);
+
+      const changed = nextGrid.some((row, rowIdx) =>
+        row.some((value, colIdx) => value !== currentGrid[rowIdx][colIdx])
+      );
+
+      return changed ? addTile(nextGrid) : currentGrid;
+    });
+  }, []);
 
   useEffect(() => {
     const handleKey = (e) => {
@@ -60,7 +70,7 @@ export default function Game2048() {
     };
     window.addEventListener("keydown", handleKey);
     return () => window.removeEventListener("keydown", handleKey);
-  }, [grid]);
+  }, [move]);
 
   return (
     <div className="container py-5">

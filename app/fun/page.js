@@ -7,7 +7,7 @@ export default function FunPage() {
     <div className="fun-page">
       <h1 className="section-title">FUN</h1>
       <p className="section-subtitle mb-4">
-        A space for music, experiments, and playful ideas that don't have to be serious to be worth building.
+        A space for music, experiments, and playful ideas that don&apos;t have to be serious to be worth building.
       </p>
 
       <div className="glass-grid">

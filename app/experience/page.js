@@ -60,7 +60,7 @@ export default function ExperiencePage() {
         </p>
 
         <div className="experience-timeline">
-          {experiences.map((exp, index) => (
+          {experiences.map((exp) => (
             <div key={exp.id} className="mb-4">
               <GlassCard>
                 <div className="d-flex flex-column flex-md-row justify-content-between align-items-start mb-3">
@@ -143,7 +143,7 @@ export default function ExperiencePage() {
           <GlassCard>
             <h3 className="h5 mb-3">Interested in working together?</h3>
             <p className="text-muted mb-4">
-              I'm always open to discussing new opportunities and collaborations.
+              I&apos;m always open to discussing new opportunities and collaborations.
             </p>
             <a 
               href="/connect" 

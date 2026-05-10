@@ -1,73 +1,71 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 import GlassCard from "../../../components/GlassCard";
 
+const EMPTY_BOARD = Array(9).fill(null);
+const WIN_PATTERNS = [
+  [0, 1, 2], [3, 4, 5], [6, 7, 8],
+  [0, 3, 6], [1, 4, 7], [2, 5, 8],
+  [0, 4, 8], [2, 4, 6],
+];
+
+const checkWinner = (board) => {
+  for (const [a, b, c] of WIN_PATTERNS) {
+    if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+      return board[a];
+    }
+  }
+  if (!board.includes(null)) return "draw";
+  return null;
+};
+
+const minimax = (board, isMaximizing) => {
+  const result = checkWinner(board);
+
+  if (result === "O") return 1;
+  if (result === "X") return -1;
+  if (result === "draw") return 0;
+
+  if (isMaximizing) {
+    let bestScore = -Infinity;
+    for (let i = 0; i < 9; i += 1) {
+      if (board[i] === null) {
+        board[i] = "O";
+        const score = minimax(board, false);
+        board[i] = null;
+        bestScore = Math.max(score, bestScore);
+      }
+    }
+    return bestScore;
+  }
+
+  let bestScore = Infinity;
+  for (let i = 0; i < 9; i += 1) {
+    if (board[i] === null) {
+      board[i] = "X";
+      const score = minimax(board, true);
+      board[i] = null;
+      bestScore = Math.min(score, bestScore);
+    }
+  }
+  return bestScore;
+};
+
 export default function TicTacToe() {
-  const emptyBoard = Array(9).fill(null);
-
-  const [board, setBoard] = useState(emptyBoard);
+  const [board, setBoard] = useState(EMPTY_BOARD);
   const [winner, setWinner] = useState(null);
-  const [turn, setTurn] = useState("X"); // Human = X
+  const [turn, setTurn] = useState("X");
 
-  const winPatterns = [
-    [0,1,2],[3,4,5],[6,7,8],
-    [0,3,6],[1,4,7],[2,5,8],
-    [0,4,8],[2,4,6]
-  ];
-
-  const checkWinner = (b) => {
-    for (let [a, b2, c] of winPatterns) {
-      if (b[a] && b[a] === b[b2] && b[a] === b[c]) {
-        return b[a];
-      }
-    }
-    if (!b.includes(null)) return "draw";
-    return null;
-  };
-
-  // 🔥 MINIMAX ALGORITHM
-  const minimax = (newBoard, isMaximizing) => {
-    const result = checkWinner(newBoard);
-
-    if (result === "O") return 1;   // Computer win
-    if (result === "X") return -1;  // Human win
-    if (result === "draw") return 0;
-
-    if (isMaximizing) {
-      let bestScore = -Infinity;
-      for (let i = 0; i < 9; i++) {
-        if (newBoard[i] === null) {
-          newBoard[i] = "O";
-          let score = minimax(newBoard, false);
-          newBoard[i] = null;
-          bestScore = Math.max(score, bestScore);
-        }
-      }
-      return bestScore;
-    } else {
-      let bestScore = Infinity;
-      for (let i = 0; i < 9; i++) {
-        if (newBoard[i] === null) {
-          newBoard[i] = "X";
-          let score = minimax(newBoard, true);
-          newBoard[i] = null;
-          bestScore = Math.min(score, bestScore);
-        }
-      }
-      return bestScore;
-    }
-  };
-
-  const bestMove = () => {
+  const bestMove = useCallback(() => {
     let bestScore = -Infinity;
     let move;
 
-    for (let i = 0; i < 9; i++) {
+    for (let i = 0; i < 9; i += 1) {
       if (board[i] === null) {
-        const newBoard = [...board];
-        newBoard[i] = "O";
-        let score = minimax(newBoard, false);
+        const nextBoard = [...board];
+        nextBoard[i] = "O";
+        const score = minimax(nextBoard, false);
         if (score > bestScore) {
           bestScore = score;
           move = i;
@@ -76,16 +74,16 @@ export default function TicTacToe() {
     }
 
     return move;
-  };
+  }, [board]);
 
   const handleClick = (i) => {
     if (board[i] || winner || turn !== "X") return;
 
-    const newBoard = [...board];
-    newBoard[i] = "X";
-    setBoard(newBoard);
+    const nextBoard = [...board];
+    nextBoard[i] = "X";
+    setBoard(nextBoard);
 
-    const result = checkWinner(newBoard);
+    const result = checkWinner(nextBoard);
     if (result) {
       setWinner(result);
     } else {
@@ -93,31 +91,30 @@ export default function TicTacToe() {
     }
   };
 
-  // Computer move
   useEffect(() => {
-    if (turn === "O" && !winner) {
-      const timer = setTimeout(() => {
-        const move = bestMove();
-        if (move !== undefined) {
-          const newBoard = [...board];
-          newBoard[move] = "O";
-          setBoard(newBoard);
+    if (turn !== "O" || winner) return undefined;
 
-          const result = checkWinner(newBoard);
-          if (result) {
-            setWinner(result);
-          } else {
-            setTurn("X");
-          }
+    const timer = setTimeout(() => {
+      const move = bestMove();
+      if (move !== undefined) {
+        const nextBoard = [...board];
+        nextBoard[move] = "O";
+        setBoard(nextBoard);
+
+        const result = checkWinner(nextBoard);
+        if (result) {
+          setWinner(result);
+        } else {
+          setTurn("X");
         }
-      }, 500);
+      }
+    }, 500);
 
-      return () => clearTimeout(timer);
-    }
-  }, [turn, board, winner]);
+    return () => clearTimeout(timer);
+  }, [bestMove, board, turn, winner]);
 
   const resetGame = () => {
-    setBoard(emptyBoard);
+    setBoard(EMPTY_BOARD);
     setWinner(null);
     setTurn("X");
   };
@@ -128,7 +125,7 @@ export default function TicTacToe() {
 
       <GlassCard className="text-center">
         {winner === "draw" ? (
-          <h2>It's a Draw!</h2>
+          <h2>It&apos;s a Draw!</h2>
         ) : winner ? (
           <h2>{winner === "X" ? "You Win! 🎉" : "Computer Wins 🤖"}</h2>
         ) : (
