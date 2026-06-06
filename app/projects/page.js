@@ -1,6 +1,6 @@
 // app/projects/page.js
 import GlassCard from '../../components/GlassCard';
-import { FaGithub, FaClock } from 'react-icons/fa';
+import { FaDownload, FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
 
 const dummyProjects = [
   {
@@ -8,7 +8,8 @@ const dummyProjects = [
     tag: 'AI / Research',
     desc: 'Detecting manipulated image, audio and video content with improved generalization.',
     github: 'https://github.com/yourusername/deepfake-detector',
-    timeline: 'Sep 2024 - Dec 2024',
+    projectUrl: 'https://github.com/yourusername/deepfake-detector',
+    downloadUrl: 'https://github.com/yourusername/deepfake-detector/archive/refs/heads/main.zip',
     technologies: ['Python', 'TensorFlow', 'OpenCV', 'PyTorch', 'Flask']
   },
   {
@@ -16,7 +17,8 @@ const dummyProjects = [
     tag: 'GenAI / Agents',
     desc: 'A terminal-based assistant that can converse, search, and run tools.',
     github: 'https://github.com/yourusername/genai-agent',
-    timeline: 'Jun 2024 - Aug 2024',
+    projectUrl: 'https://github.com/yourusername/genai-agent',
+    downloadUrl: 'https://github.com/yourusername/genai-agent/archive/refs/heads/main.zip',
     technologies: ['Python', 'LangChain', 'OpenAI API', 'Streamlit']
   },
   {
@@ -24,7 +26,8 @@ const dummyProjects = [
     tag: 'Web / Next.js',
     desc: 'A smart bookshelf that remembers, recommends, and organizes your content.',
     github: 'https://github.com/yourusername/digital-bookshelf',
-    timeline: 'Mar 2024 - May 2024',
+    projectUrl: 'https://github.com/yourusername/digital-bookshelf',
+    downloadUrl: 'https://github.com/yourusername/digital-bookshelf/archive/refs/heads/main.zip',
     technologies: ['Next.js', 'React', 'MongoDB', 'Tailwind CSS', 'Node.js']
   },
 ];
@@ -68,20 +71,8 @@ export default function ProjectsPage() {
               {project.desc}
             </p>
 
-            {/* Timeline */}
-            <div className="d-flex align-items-center mb-3" style={{ gap: '0.5rem' }}>
-              <FaClock style={{ color: 'var(--accent-purple)', fontSize: '0.85rem' }} />
-              <span style={{ 
-                fontSize: '0.85rem', 
-                color: 'var(--accent-purple)',
-                fontWeight: '500'
-              }}>
-                {project.timeline}
-              </span>
-            </div>
-
             {/* Technologies */}
-            <div>
+            <div className="mb-4">
               <p className="mb-2" style={{ 
                 fontSize: '0.75rem', 
                 textTransform: 'uppercase', 
@@ -110,6 +101,29 @@ export default function ProjectsPage() {
                   </span>
                 ))}
               </div>
+            </div>
+
+            <div className="d-flex flex-wrap gap-2">
+              <a
+                href={project.projectUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-glass"
+                style={{ textDecoration: 'none' }}
+              >
+                Visit Project <FaExternalLinkAlt className="ms-2" size={12} />
+              </a>
+
+              {project.downloadUrl && (
+                <a
+                  href={project.downloadUrl}
+                  className="btn btn-glass"
+                  style={{ textDecoration: 'none' }}
+                  download
+                >
+                  Download <FaDownload className="ms-2" size={12} />
+                </a>
+              )}
             </div>
           </GlassCard>
         ))}

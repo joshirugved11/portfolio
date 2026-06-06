@@ -26,7 +26,7 @@ export default function HomePage() {
 
               <p className="hero-tagline mb-4">
                 I build AI & GenAI systems, experiment with deepfake detection,
-                explore ethical hacking, and create things just for fun.
+                explore ethical hacking, and create practical tech experiments.
               </p>
 
               <div className="d-flex flex-wrap gap-3">
@@ -61,7 +61,7 @@ export default function HomePage() {
                 style={{ fontSize: '0.95rem', opacity: 0.9 }}
               >
                 Scroll down or use the navigation above to explore my projects,
-                fun experiments, newsletter, and ways to support my work.
+                newsletter, and ways to support my work.
               </p>
 
             </GlassCard>
@@ -77,14 +77,6 @@ export default function HomePage() {
             <p className="mb-3 text-muted" style={{ fontSize: '0.9rem' }}>
               AI, deepfake detection, GenAI agents, web apps and more.
               This section will showcase the work I&apos;ve actually built.
-            </p>
-          </GlassCard>
-
-          <GlassCard>
-            <h3 className="h5 mb-2">Fun</h3>
-            <p className="mb-3 text-muted" style={{ fontSize: '0.9rem' }}>
-              Music, experiments, mini tools, and playful ideas that don&apos;t
-              have to be serious to be worth building.
             </p>
           </GlassCard>
 

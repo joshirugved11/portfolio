@@ -11,7 +11,7 @@ import LiquidBackground from "../components/LiquidBackground";
 export const metadata = {
   title: "Rugved | Liquid Glass Portfolio",
   description:
-    "Portfolio with a liquid glass theme, projects, fun, connect, newsletter & support.",
+    "Portfolio with a liquid glass theme, projects, publications, connect, newsletter & support.",
 };
 
 export default function RootLayout({ children }) {
