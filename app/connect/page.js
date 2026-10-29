@@ -27,11 +27,11 @@ export default function ConnectPage() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || 'Submission failed');
 
-      setStatus('[ OK ] Message transmitted successfully.');
+      setStatus('Message sent successfully.');
       setForm({ name: '', email: '', message: '' });
     } catch (err) {
       console.error(err);
-      setStatus('[ ERR ] Transmission failed. Try again later.');
+      setStatus('Something went wrong. Please try again later.');
     } finally {
       setLoading(false);
     }
@@ -39,14 +39,13 @@ export default function ConnectPage() {
 
   return (
     <div className="container py-5">
-      <p className="terminal-label mb-2">connect.sh</p>
+      <p className="terminal-label mb-2">Connect</p>
       <h1 className="section-title">Connect With Me</h1>
       <p
         className="mb-4"
         style={{
           fontSize: '0.95rem',
           color: 'var(--text-soft)',
-          fontFamily: 'var(--font-mono)',
         }}
       >
         Have a project idea, collaboration, or just want to say hi? Drop a message here.
@@ -62,7 +61,7 @@ export default function ConnectPage() {
               value={form.name}
               onChange={handleChange}
               className="form-control"
-              placeholder="your_name"
+              placeholder="Your name"
               required
               autoComplete="name"
             />
@@ -99,20 +98,18 @@ export default function ConnectPage() {
 
           <div className="col-12 d-flex flex-wrap justify-content-between align-items-center gap-3">
             <button className="btn btn-glass" disabled={loading} type="submit">
-              {loading ? '[ SENDING... ]' : '> Send Message'}
+              {loading ? 'Sending...' : 'Send Message'}
             </button>
 
             {status && (
               <span
                 style={{
-                  fontFamily: 'var(--font-mono)',
+                  fontFamily: 'var(--font-body)',
                   fontSize: '0.82rem',
-                  color: status.startsWith('[ OK ]')
-                    ? 'var(--green-bright)'
-                    : '#ff4d4d',
-                  textShadow: status.startsWith('[ OK ]')
-                    ? 'var(--glow-subtle)'
-                    : '0 0 8px rgba(255,77,77,0.5)',
+                  fontWeight: 500,
+                  color: status.startsWith('Message sent')
+                    ? 'var(--green)'
+                    : '#d94545',
                 }}
               >
                 {status}

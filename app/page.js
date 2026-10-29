@@ -17,7 +17,7 @@ export default function HomePage() {
           <div className="col-lg-7">
             <GlassCard>
               <p className="terminal-label mb-3">
-                Initializing portfolio...
+                Welcome
               </p>
 
               <h1 className="hero-title mb-3">
@@ -26,8 +26,7 @@ export default function HomePage() {
               </h1>
 
               {/* Static role */}
-              <div className="mb-4" style={{ fontSize: '1.1rem', fontFamily: 'var(--font-mono)' }}>
-                <span style={{ color: 'var(--green-bright)', opacity: 0.7 }}>$ whoami &rarr; </span>
+              <div className="mb-4" style={{ fontSize: '1.1rem' }}>
                 <StaticRole role="AI & GenAI Engineer" />
               </div>
 
@@ -38,10 +37,10 @@ export default function HomePage() {
 
               <div className="d-flex flex-wrap gap-3">
                 <Link href="/projects" className="btn btn-glass">
-                  &gt; Explore Projects
+                  Explore Projects
                 </Link>
                 <Link href="/connect" className="btn btn-glass">
-                  &gt; Get in Touch
+                  Get in Touch
                 </Link>
               </div>
             </GlassCard>
@@ -59,7 +58,7 @@ export default function HomePage() {
                   style={{
                     borderRadius: '20px',
                     objectFit: 'cover',
-                    border: '2px solid rgba(0,255,65,0.35)',
+                    border: '2px solid rgba(48,184,94,0.3)',
                     display: 'block',
                   }}
                   priority
@@ -82,10 +81,10 @@ export default function HomePage() {
       <section>
         <div className="glass-grid">
           <GlassCard>
-            <p className="terminal-label mb-2">section_01</p>
+            <p className="terminal-label mb-2">Projects</p>
             <h3
               className="h5 mb-2"
-              style={{ color: 'var(--green-bright)', fontFamily: 'var(--font-display)' }}
+              style={{ color: 'var(--text-main)', fontFamily: 'var(--font-display)' }}
             >
               Projects
             </h3>
@@ -94,15 +93,15 @@ export default function HomePage() {
               This section showcases the work I&apos;ve actually built.
             </p>
             <Link href="/projects" className="btn btn-glass" style={{ fontSize: '0.8rem' }}>
-              &gt; View Projects
+              View Projects
             </Link>
           </GlassCard>
 
           <GlassCard>
-            <p className="terminal-label mb-2">section_02</p>
+            <p className="terminal-label mb-2">Connect</p>
             <h3
               className="h5 mb-2"
-              style={{ color: 'var(--green-bright)', fontFamily: 'var(--font-display)' }}
+              style={{ color: 'var(--text-main)', fontFamily: 'var(--font-display)' }}
             >
               Connect &amp; Newsletter
             </h3>
@@ -111,7 +110,7 @@ export default function HomePage() {
               Join the newsletter to get updates on what I&apos;m building.
             </p>
             <Link href="/connect" className="btn btn-glass" style={{ fontSize: '0.8rem' }}>
-              &gt; Connect
+              Connect
             </Link>
           </GlassCard>
         </div>
@@ -120,10 +119,10 @@ export default function HomePage() {
       {/* ─── SOCIAL MEDIA ─── */}
       <section className="mt-5">
         <GlassCard className="text-center">
-          <p className="terminal-label mb-2">social_links.exe</p>
+          <p className="terminal-label mb-2">Social</p>
           <h3
             className="h5 mb-3"
-            style={{ color: 'var(--green-bright)', fontFamily: 'var(--font-display)' }}
+            style={{ color: 'var(--text-main)', fontFamily: 'var(--font-display)' }}
           >
             Connect With Me
           </h3>

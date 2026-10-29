@@ -1,8 +1,8 @@
 'use client';
 
 /**
- * GlassCard — wraps content in the hacker-themed glass panel.
- * Corner accents and border glow are handled by CSS (.glass-card).
+ * GlassCard — wraps content in a translucent liquid glass panel.
+ * Specular highlight and inner glow are handled by CSS (.glass-card).
  */
 export default function GlassCard({ className = '', children, onClick }) {
   return (

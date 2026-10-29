@@ -56,7 +56,7 @@ const experiences = [
 export default function ExperiencePage() {
   return (
     <div className="experience-page">
-      <p className="terminal-label mb-2">experience.log</p>
+      <p className="terminal-label mb-2">Experience</p>
       <h1 className="section-title text-center mb-2">Professional Experience</h1>
       <p
         className="text-center mb-5"
@@ -65,7 +65,6 @@ export default function ExperiencePage() {
           maxWidth: '700px',
           margin: '0 auto 3rem',
           color: 'var(--text-soft)',
-          fontFamily: 'var(--font-mono)',
         }}
       >
         My journey through various roles, internships, and professional experiences in the tech industry.
@@ -83,16 +82,15 @@ export default function ExperiencePage() {
                     style={{
                       letterSpacing: '0.12em',
                       fontSize: '0.68rem',
-                      color: 'var(--green-bright)',
-                      opacity: 0.7,
-                      fontFamily: 'var(--font-mono)',
+                      color: 'var(--green)',
+                      opacity: 0.85,
                     }}
                   >
                     {exp.company} • {exp.location}
                   </p>
                   <h2
                     className="h4 mb-0"
-                    style={{ fontWeight: '700', fontFamily: 'var(--font-display)', color: 'var(--green-pale)' }}
+                    style={{ fontWeight: '700', fontFamily: 'var(--font-display)', color: 'var(--text-main)' }}
                   >
                     {exp.role}
                   </h2>
@@ -100,7 +98,7 @@ export default function ExperiencePage() {
 
                 <span
                   className="duration-badge px-3 py-1"
-                  style={{ borderRadius: '4px', fontFamily: 'var(--font-mono)' }}
+                  style={{ borderRadius: '12px' }}
                 >
                   {exp.duration}
                 </span>
@@ -117,12 +115,11 @@ export default function ExperiencePage() {
                     fontSize: '0.72rem',
                     textTransform: 'uppercase',
                     letterSpacing: '0.12em',
-                    color: 'var(--green-bright)',
+                    color: 'var(--green)',
                     marginBottom: '0.5rem',
-                    fontFamily: 'var(--font-mono)',
                   }}
                 >
-                  achievements
+                  Achievements
                 </p>
                 <ul style={{ paddingLeft: '1.25rem', margin: 0 }}>
                   {exp.achievements.map((a, idx) => (
@@ -136,8 +133,8 @@ export default function ExperiencePage() {
                         listStyleType: 'none',
                       }}
                     >
-                      <span style={{ color: 'var(--green-bright)', marginRight: '8px', opacity: 0.7 }}>
-                        &gt;
+                      <span style={{ color: 'var(--green)', marginRight: '8px' }}>
+                        •
                       </span>
                       {a}
                     </li>
@@ -152,13 +149,12 @@ export default function ExperiencePage() {
                     fontSize: '0.72rem',
                     textTransform: 'uppercase',
                     letterSpacing: '0.12em',
-                    color: 'var(--green-bright)',
+                    color: 'var(--green)',
                     marginBottom: '0.5rem',
-                    fontFamily: 'var(--font-mono)',
-                    opacity: 0.7,
+                    opacity: 0.85,
                   }}
                 >
-                  stack
+                  Stack
                 </p>
                 <div className="d-flex flex-wrap gap-2">
                   {exp.skills.map((skill) => (
@@ -176,10 +172,10 @@ export default function ExperiencePage() {
       {/* CTA */}
       <div className="text-center mt-5">
         <GlassCard>
-          <p className="terminal-label mb-2">collaboration.sh</p>
+          <p className="terminal-label mb-2">Connect</p>
           <h3
             className="h5 mb-3"
-            style={{ color: 'var(--green-bright)', fontFamily: 'var(--font-display)' }}
+            style={{ color: 'var(--text-main)', fontFamily: 'var(--font-display)' }}
           >
             Interested in working together?
           </h3>
@@ -187,7 +183,7 @@ export default function ExperiencePage() {
             I&apos;m always open to discussing new opportunities and collaborations.
           </p>
           <a href="/connect" className="btn btn-glass" style={{ textDecoration: 'none' }}>
-            &gt; Get in Touch
+            Get in Touch
           </a>
         </GlassCard>
       </div>

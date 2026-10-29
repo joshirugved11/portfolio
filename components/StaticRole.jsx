@@ -5,7 +5,7 @@
 export default function StaticRole({ role = 'AI & GenAI Engineer' }) {
   return (
     <span aria-label={role}>
-      <span style={{ color: 'var(--green-bright)', textShadow: 'var(--glow-green)' }}>
+      <span style={{ color: 'var(--green)', fontWeight: 600 }}>
         {role}
       </span>
     </span>

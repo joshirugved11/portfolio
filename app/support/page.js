@@ -18,7 +18,7 @@ export default function SupportPage() {
 
   return (
     <div className="container py-5">
-      <p className="terminal-label mb-2">support.exe</p>
+      <p className="terminal-label mb-2">Support</p>
       <h1 className="section-title text-center mb-3">Support My Work</h1>
       <p
         className="text-center mb-5"
@@ -27,7 +27,6 @@ export default function SupportPage() {
           maxWidth: '700px',
           margin: '0 auto 3rem',
           color: 'var(--text-soft)',
-          fontFamily: 'var(--font-mono)',
         }}
       >
         If you like what I build — AI tools, research projects, experiments —
@@ -44,13 +43,12 @@ export default function SupportPage() {
                 fontSize: '0.72rem',
                 textTransform: 'uppercase',
                 letterSpacing: '0.14em',
-                color: 'var(--green-bright)',
+                color: 'var(--green)',
                 marginBottom: '1.2rem',
-                fontFamily: 'var(--font-mono)',
-                opacity: 0.7,
+                opacity: 0.85,
               }}
             >
-              choose a one-time amount
+              Choose a one-time amount
             </p>
 
             <div className="d-flex flex-wrap gap-3 mb-4">
@@ -72,7 +70,7 @@ export default function SupportPage() {
             </div>
 
             <button className="btn btn-glass" onClick={handleSupportClick} type="button">
-              &gt; Support via Buy Me a Coffee
+              Support via Buy Me a Coffee
             </button>
           </GlassCard>
         </div>
@@ -85,13 +83,12 @@ export default function SupportPage() {
                 fontSize: '0.72rem',
                 textTransform: 'uppercase',
                 letterSpacing: '0.14em',
-                color: 'var(--green-bright)',
+                color: 'var(--green)',
                 marginBottom: '1rem',
-                fontFamily: 'var(--font-mono)',
-                opacity: 0.7,
+                opacity: 0.85,
               }}
             >
-              what your support enables
+              What your support enables
             </p>
             <ul style={{ paddingLeft: 0, listStyle: 'none', margin: 0 }}>
               {[
@@ -100,7 +97,7 @@ export default function SupportPage() {
                 'More content, write-ups and tutorials I can share.',
               ].map((item) => (
                 <li key={item} className="mb-3" style={{ fontSize: '0.88rem', lineHeight: '1.55', color: 'var(--text-soft)' }}>
-                  <span style={{ color: 'var(--green-bright)', marginRight: '8px', opacity: 0.7 }}>&gt;</span>
+                  <span style={{ color: 'var(--green)', marginRight: '8px' }}>•</span>
                   {item}
                 </li>
               ))}

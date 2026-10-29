@@ -34,7 +34,7 @@ const projects = [
 export default function ProjectsPage() {
   return (
     <div className="projects-page">
-      <p className="terminal-label mb-2">projects.exe</p>
+      <p className="terminal-label mb-2">Projects</p>
       <h1 className="section-title mb-5">Projects</h1>
 
       <div className="glass-grid">
@@ -48,16 +48,15 @@ export default function ProjectsPage() {
                   style={{
                     letterSpacing: '0.14em',
                     fontSize: '0.68rem',
-                    color: 'var(--green-bright)',
-                    opacity: 0.7,
-                    fontFamily: 'var(--font-mono)',
+                    color: 'var(--green)',
+                    opacity: 0.85,
                   }}
                 >
-                  // {project.tag}
+                  {project.tag}
                 </p>
                 <h2
                   className="h5 mb-0"
-                  style={{ color: 'var(--green-pale)', fontFamily: 'var(--font-display)', fontWeight: 700 }}
+                  style={{ color: 'var(--text-main)', fontFamily: 'var(--font-display)', fontWeight: 700 }}
                 >
                   {project.title}
                 </h2>
@@ -88,11 +87,11 @@ export default function ProjectsPage() {
                   fontSize: '0.7rem',
                   textTransform: 'uppercase',
                   letterSpacing: '0.12em',
-                  color: 'var(--green-bright)',
-                  opacity: 0.65,
+                  color: 'var(--green)',
+                  opacity: 0.85,
                 }}
               >
-                stack
+                Stack
               </p>
               <div className="d-flex flex-wrap gap-2">
                 {project.technologies.map((tech) => (
@@ -111,7 +110,7 @@ export default function ProjectsPage() {
                 className="btn btn-glass"
                 style={{ textDecoration: 'none', fontSize: '0.8rem' }}
               >
-                &gt; Visit <FaExternalLinkAlt className="ms-2" size={11} />
+                Visit <FaExternalLinkAlt className="ms-2" size={11} />
               </a>
 
               {project.downloadUrl && (
@@ -121,7 +120,7 @@ export default function ProjectsPage() {
                   style={{ textDecoration: 'none', fontSize: '0.8rem' }}
                   download
                 >
-                  &gt; Download <FaDownload className="ms-2" size={11} />
+                  Download <FaDownload className="ms-2" size={11} />
                 </a>
               )}
             </div>

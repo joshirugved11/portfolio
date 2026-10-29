@@ -79,7 +79,7 @@ const certifications = [
 export default function EducationPage() {
   return (
     <div className="education-page">
-      <p className="terminal-label mb-2">education.log</p>
+      <p className="terminal-label mb-2">Education</p>
       <h1 className="section-title text-center mb-2">Education</h1>
       <p
         className="text-center mb-5"
@@ -88,7 +88,6 @@ export default function EducationPage() {
           maxWidth: '680px',
           margin: '0 auto 3rem',
           color: 'var(--text-soft)',
-          fontFamily: 'var(--font-mono)',
         }}
       >
         My academic background, degrees, and the certifications I&apos;ve picked
@@ -108,9 +107,8 @@ export default function EducationPage() {
                     style={{
                       letterSpacing: '0.12em',
                       fontSize: '0.68rem',
-                      color: 'var(--green-bright)',
-                      opacity: 0.7,
-                      fontFamily: 'var(--font-mono)',
+                      color: 'var(--green)',
+                      opacity: 0.85,
                     }}
                   >
                     {edu.institution} • {edu.location}
@@ -120,7 +118,7 @@ export default function EducationPage() {
                     style={{
                       fontWeight: '700',
                       fontFamily: 'var(--font-display)',
-                      color: 'var(--green-pale)',
+                      color: 'var(--text-main)',
                     }}
                   >
                     {edu.degree}
@@ -128,8 +126,7 @@ export default function EducationPage() {
                   <span
                     style={{
                       fontSize: '0.8rem',
-                      color: 'var(--green-bright)',
-                      fontFamily: 'var(--font-mono)',
+                      color: 'var(--green)',
                       opacity: 0.85,
                     }}
                   >
@@ -139,7 +136,7 @@ export default function EducationPage() {
 
                 <span
                   className="duration-badge px-3 py-1"
-                  style={{ borderRadius: '4px', fontFamily: 'var(--font-mono)', whiteSpace: 'nowrap' }}
+                  style={{ borderRadius: '12px', whiteSpace: 'nowrap' }}
                 >
                   {edu.duration}
                 </span>
@@ -156,12 +153,11 @@ export default function EducationPage() {
                     fontSize: '0.72rem',
                     textTransform: 'uppercase',
                     letterSpacing: '0.12em',
-                    color: 'var(--green-bright)',
+                    color: 'var(--green)',
                     marginBottom: '0.5rem',
-                    fontFamily: 'var(--font-mono)',
                   }}
                 >
-                  highlights
+                  Highlights
                 </p>
                 <ul style={{ paddingLeft: 0, margin: 0, listStyle: 'none' }}>
                   {edu.highlights.map((h, idx) => (
@@ -176,12 +172,11 @@ export default function EducationPage() {
                     >
                       <span
                         style={{
-                          color: 'var(--green-bright)',
+                          color: 'var(--green)',
                           marginRight: '8px',
-                          opacity: 0.7,
                         }}
                       >
-                        &gt;
+                        •
                       </span>
                       {h}
                     </li>
@@ -196,13 +191,12 @@ export default function EducationPage() {
                     fontSize: '0.72rem',
                     textTransform: 'uppercase',
                     letterSpacing: '0.12em',
-                    color: 'var(--green-bright)',
+                    color: 'var(--green)',
                     marginBottom: '0.5rem',
-                    fontFamily: 'var(--font-mono)',
-                    opacity: 0.7,
+                    opacity: 0.85,
                   }}
                 >
-                  key subjects
+                  Key Subjects
                 </p>
                 <div className="d-flex flex-wrap gap-2">
                   {edu.subjects.map((s) => (
@@ -219,15 +213,15 @@ export default function EducationPage() {
 
       {/* ─── CERTIFICATIONS ─── */}
       <div style={{ maxWidth: '900px', margin: '3rem auto 0' }}>
-        <p className="terminal-label mb-2">certifications.json</p>
+        <p className="terminal-label mb-2">Certifications</p>
         <h2
           className="mb-4"
           style={{
             fontFamily: 'var(--font-display)',
-            color: 'var(--green-bright)',
+            color: 'var(--text-main)',
             fontSize: '1.4rem',
             fontWeight: 700,
-            letterSpacing: '0.04em',
+            letterSpacing: '-0.01em',
           }}
         >
           Certifications &amp; Courses
@@ -241,9 +235,8 @@ export default function EducationPage() {
                   fontSize: '0.68rem',
                   textTransform: 'uppercase',
                   letterSpacing: '0.14em',
-                  color: 'var(--green-bright)',
-                  opacity: 0.7,
-                  fontFamily: 'var(--font-mono)',
+                  color: 'var(--green)',
+                  opacity: 0.85,
                   marginBottom: '0.4rem',
                 }}
               >
@@ -251,7 +244,7 @@ export default function EducationPage() {
               </p>
               <h3
                 className="h6 mb-3"
-                style={{ color: 'var(--green-pale)', fontFamily: 'var(--font-display)', fontWeight: 600 }}
+                style={{ color: 'var(--text-main)', fontFamily: 'var(--font-display)', fontWeight: 600 }}
               >
                 {cert.name}
               </h3>
@@ -263,17 +256,16 @@ export default function EducationPage() {
                   className="btn btn-glass"
                   style={{ fontSize: '0.78rem', textDecoration: 'none' }}
                 >
-                  &gt; View Certificate
+                  View Certificate
                 </a>
               ) : (
                 <span
                   style={{
                     fontSize: '0.78rem',
                     color: 'var(--text-dim)',
-                    fontFamily: 'var(--font-mono)',
                   }}
                 >
-                  link coming soon
+                  Link coming soon
                 </span>
               )}
             </GlassCard>
@@ -284,10 +276,10 @@ export default function EducationPage() {
       {/* ─── CTA ─── */}
       <div className="text-center mt-5" style={{ maxWidth: '900px', margin: '3rem auto 0' }}>
         <GlassCard>
-          <p className="terminal-label mb-2">connect.sh</p>
+          <p className="terminal-label mb-2">Connect</p>
           <h3
             className="h5 mb-3"
-            style={{ color: 'var(--green-bright)', fontFamily: 'var(--font-display)' }}
+            style={{ color: 'var(--text-main)', fontFamily: 'var(--font-display)' }}
           >
             Interested in collaborating or hiring?
           </h3>
@@ -296,7 +288,7 @@ export default function EducationPage() {
             collaborations.
           </p>
           <a href="/connect" className="btn btn-glass" style={{ textDecoration: 'none' }}>
-            &gt; Get in Touch
+            Get in Touch
           </a>
         </GlassCard>
       </div>

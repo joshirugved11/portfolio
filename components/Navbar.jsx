@@ -25,7 +25,7 @@ export default function Navbar() {
           className="navbar-brand"
           href="/"
         >
-          RUGVED <span style={{ opacity: 0.5 }}>·</span> PORTFOLIO
+          RUGVED <span style={{ opacity: 0.4 }}>·</span> PORTFOLIO
         </Link>
 
         <button
@@ -33,7 +33,7 @@ export default function Navbar() {
           type="button"
           aria-label="Toggle navigation"
           onClick={() => setIsOpen((v) => !v)}
-          style={{ border: '1px solid rgba(0,255,65,0.4)' }}
+          style={{ border: '1px solid rgba(48,184,94,0.3)' }}
         >
           {/* Custom hamburger icon */}
           <span
@@ -51,8 +51,7 @@ export default function Navbar() {
                   display: 'block',
                   width: '22px',
                   height: '2px',
-                  background: 'var(--green-bright)',
-                  boxShadow: '0 0 6px var(--green-bright)',
+                  background: 'var(--green)',
                   borderRadius: '1px',
                   transition: 'all 0.3s ease',
                   transform:
@@ -75,12 +74,6 @@ export default function Navbar() {
                   className={`nav-link ${pathname === link.href ? 'active' : ''}`}
                   onClick={() => setIsOpen(false)}
                 >
-                  {/* Show > prefix on active */}
-                  {pathname === link.href && (
-                    <span style={{ color: 'var(--green-bright)', marginRight: '4px', opacity: 0.7 }}>
-                      &gt;
-                    </span>
-                  )}
                   {link.label}
                 </Link>
               </li>

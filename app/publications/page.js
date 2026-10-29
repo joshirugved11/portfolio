@@ -32,7 +32,7 @@ export default function PublicationsPage() {
   return (
     <div className="publications-page">
       <div className="text-center mb-5">
-        <p className="terminal-label mb-2">publications.db</p>
+        <p className="terminal-label mb-2">Publications</p>
         <h1 className="section-title mb-3">Publications</h1>
         <p
           style={{
@@ -41,7 +41,6 @@ export default function PublicationsPage() {
             fontSize: '0.95rem',
             lineHeight: '1.7',
             color: 'var(--text-soft)',
-            fontFamily: 'var(--font-mono)',
           }}
         >
           This page is dedicated to research publications only. For articles,
@@ -59,16 +58,15 @@ export default function PublicationsPage() {
                   style={{
                     letterSpacing: '0.14em',
                     fontSize: '0.68rem',
-                    color: 'var(--green-bright)',
-                    opacity: 0.7,
-                    fontFamily: 'var(--font-mono)',
+                    color: 'var(--green)',
+                    opacity: 0.85,
                   }}
                 >
                   {item.type}
                 </p>
                 <h2
                   className="h5 mb-0"
-                  style={{ color: 'var(--green-pale)', fontFamily: 'var(--font-display)', fontWeight: 700 }}
+                  style={{ color: 'var(--text-main)', fontFamily: 'var(--font-display)', fontWeight: 700 }}
                 >
                   {item.title}
                 </h2>
@@ -88,7 +86,7 @@ export default function PublicationsPage() {
             </div>
 
             <button className="btn btn-glass" type="button" disabled style={{ opacity: 0.5 }}>
-              &gt; Coming Soon <FaExternalLinkAlt className="ms-2" size={11} />
+              Coming Soon <FaExternalLinkAlt className="ms-2" size={11} />
             </button>
           </GlassCard>
         ))}
@@ -96,11 +94,11 @@ export default function PublicationsPage() {
 
       <div className="text-center mt-2">
         <GlassCard>
-          <FaPenNib size={24} className="mb-3" style={{ color: 'var(--green-bright)' }} />
-          <p className="terminal-label mb-2">status: publishing_soon</p>
+          <FaPenNib size={24} className="mb-3" style={{ color: 'var(--green)' }} />
+          <p className="terminal-label mb-2">Publishing Soon</p>
           <h2
             className="h5 mb-3"
-            style={{ color: 'var(--green-bright)', fontFamily: 'var(--font-display)' }}
+            style={{ color: 'var(--text-main)', fontFamily: 'var(--font-display)' }}
           >
             Publishing soon
           </h2>
